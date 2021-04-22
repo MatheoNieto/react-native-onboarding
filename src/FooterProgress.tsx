@@ -1,20 +1,35 @@
 import React, { Component } from 'react';
 
 import { View, StyleSheet, TouchableOpacity, Dimensions, Platform } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
-import { times } from 'lodash';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import StepIcon from './StepIcon'
 import ButtonNextOnboarding from './ButtonNextOnboarding'
 import ButtonPreviosOnboarding from './ButtonPreviosOnboarding'
 
-import { connect } from 'react-redux'
-import { saveSetupAccount } from '../../store/actions/setupAction'
+interface Props {
+  stepCount?: any
+  activeStep?: any
+  isComplete?: any
+  onNext?: any
+  setActiveStep?: any
+  onFinish?: any
+  onPrevious?: any
+  errors?: any
+  previousBtnStyle?: any
+  previousBtnDisabled?: any
+  nextBtnDisabled?: boolean
+  previousBtnTextStyle?: any
+}
 
+interface State {
+  stepCount: any
+  activeStep: any
+}
 
-class FooterProgress extends Component {
-  constructor(props){
+class FooterProgress extends Component<Props, State> {
+  constructor(props: Props) {
     super(props)
 
     this.state = {
@@ -27,9 +42,9 @@ class FooterProgress extends Component {
     this.setState({ stepCount: 6 });
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.activeStep !== this.props.activeStep) {
-      this.setActiveStep(this.props.activeStep);
+  componentDidUpdate(prevProps: any) {
+    if (prevProps.activeStep != this.props.activeStep) {
+      this.props.setActiveStep(this.props.activeStep);
     }
   }
 
@@ -38,25 +53,24 @@ class FooterProgress extends Component {
   }
 
   renderStepIcons = () => {
-    let step = [];
+    let step: Array<any> = [];
 
-    times(this.state.stepCount, (i) => {
-
-      const isCompletedStep = this.props.isComplete ? true : i < this.state.activeStep;
-      const isActiveStep = this.props.isComplete ? false : i == this.state.activeStep;
+    for (let i = 0; i < this.state.stepCount; i++) {
+      const isCompletedStep = (this.props.isComplete) ? true : i < this.state.activeStep;
+      const isActiveStep = (this.props.isComplete) ? false : i == this.state.activeStep;
 
       step.push(
         <StepIcon
           key={i}
-          {...this.getChildProps()}
           stepNum={i + 1}
-          isFirstStep={i === 0}
-          isLastStep={i === this.state.stepCount - 1}
+          isFirstStep={i == 0}
+          isLastStep={i == this.state.stepCount - 1}
           isCompletedStep={isCompletedStep}
           isActiveStep={isActiveStep}
+          {...this.getChildProps()}
         />
       );
-    });
+    }
 
     return step;
   };
@@ -64,7 +78,6 @@ class FooterProgress extends Component {
   onNextStep = async () => {
     this.props.onNext && (await this.props.onNext());
 
-    // Return out of method before moving to next step if errors exist.
     if (this.props.errors) {
       return;
     }
@@ -73,14 +86,12 @@ class FooterProgress extends Component {
   };
 
   onPreviousStep = () => {
-    // Changes active index and calls previous function passed by parent
     this.props.onPrevious && this.props.onPrevious();
     this.props.setActiveStep(this.props.activeStep - 1);
   };
 
-  onSubmit = () => {
-    this.props.saveSetupAccount()
-    this.props.navigation.navigate({ routeName: 'Dashboard' })
+  onSubmit = (event: Event) => {
+    this.props.onFinish(event)
   };
 
   renderNextButton = () => {
@@ -89,7 +100,9 @@ class FooterProgress extends Component {
       color: '#cdcdcd'
     };
 
-    if (this.props.nextBtnDisabled) textStyle.push(disabledBtnText);
+    // if (this.props.nextBtnDisabled) {
+    //   textStyle.push(disabledBtnText);
+    // }
 
     return (
       <TouchableOpacity
@@ -135,19 +148,17 @@ class FooterProgress extends Component {
   render() {
     const windowHeight = Dimensions.get('window').height
     const styleContainer = ({
-    
+
       textIOS: {
-       bottom: (windowHeight > 750) ? -70 : -90
+        bottom: (windowHeight > 750) ? -70 : -90
       },
       textAndroid: {
-        flex:1,
-         bottom: (windowHeight < 772) ? 90 : 110
+        flex: 1,
+        bottom: (windowHeight < 772) ? 90 : 110
       },
-      });
+    });
 
-     
-
-    let styleContent = {
+    let styleContent: any = {
       flexDirection: 'row-reverse',
       alignItems: 'center',
       justifyContent: 'space-around',
@@ -165,8 +176,7 @@ class FooterProgress extends Component {
     }
 
     return (
-      // <View style={styleContainer}>
-      <View style={Platform.OS == 'ios' ? styleContainer.textIOS : styleContainer.textAndroid}> 
+      <View style={Platform.OS == 'ios' ? styleContainer.textIOS : styleContainer.textAndroid}>
         <View style={styleContent}>
           <ButtonNextOnboarding renderNextButton={this.renderNextButton} />
           <View style={styles.stepIcons}>
@@ -186,21 +196,4 @@ const styles = StyleSheet.create({
   },
 })
 
-
-FooterProgress.defaultProps = {
-  nextBtnDisabled: false,
-  previousBtnDisabled: false,
-  errors: false,
-  removeBtnRow: false,
-  scrollable: true
-};
-
-const mapStateToProps = (reducers) => {
-  return reducers.setupReducer
-}
-
-const mapDispatchToProps = (dispatch) => ({
-  saveSetupAccount: (payload) => dispatch(saveSetupAccount(payload)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(FooterProgress)
+export default FooterProgress

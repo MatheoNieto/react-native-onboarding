@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import PropTypes from 'prop-types';
+import { View } from 'react-native';
 
-class StepIcon extends Component {
+interface Props {
+  stepNum: any
+  isFirstStep: boolean
+  isLastStep: boolean
+  isCompletedStep: boolean
+  isActiveStep: boolean
+}
+
+class StepIcon extends Component<Props> {
+  
+  constructor(props:Props){
+    super(props)
+  }
+  
   render() {
     let styles;
 
@@ -10,7 +22,7 @@ class StepIcon extends Component {
       styles = {
         container: {
           backgroundColor: '#f9f8f2',
-          flexDirection: 'column', 
+          flexDirection: 'column',
           alignItems: 'center',
         },
         circleStyle: {
@@ -23,13 +35,13 @@ class StepIcon extends Component {
           bottom: 2,
           marginHorizontal: 10,
         },
-        
+
       };
     } else if (this.props.isCompletedStep) {
       styles = {
         container: {
           backgroundColor: '#f9f8f2',
-          flexDirection: 'column', 
+          flexDirection: 'column',
           alignItems: 'center'
         },
         circleStyle: {
@@ -44,13 +56,13 @@ class StepIcon extends Component {
           alignSelf: 'center',
           top: 18 / 2,
         },
-        
+
       };
     } else {
       styles = {
         container: {
           backgroundColor: '#f9f8f2',
-          flexDirection: 'column', 
+          flexDirection: 'column',
           alignItems: 'center'
         },
         circleStyle: {
@@ -72,6 +84,5 @@ class StepIcon extends Component {
     );
   }
 }
-
 
 export default StepIcon;

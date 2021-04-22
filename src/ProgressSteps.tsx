@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { times } from 'lodash';
-import PropTypes from 'prop-types';
+
 import StepIcon from './StepIcon';
 
-class ProgressSteps extends Component {
+interface Props {
+  activeStep?:any
+  isComplete?:any
+  children?: any
+}
+class ProgressSteps extends Component<Props> {
   state = {
     stepCount: 0,
     activeStep: this.props.activeStep,
@@ -14,7 +19,7 @@ class ProgressSteps extends Component {
     this.setState({ stepCount: React.Children.count(this.props.children) });
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps:any) {
     if (prevProps.activeStep !== this.props.activeStep) {
       this.setActiveStep(this.props.activeStep);
     }
@@ -25,12 +30,12 @@ class ProgressSteps extends Component {
   }
 
   renderStepIcons = () => {
-    let step = [];
+    let step:Array<any> = [];
 
     times(this.state.stepCount, (i) => {
       const isCompletedStep = this.props.isComplete ? true : i < this.state.activeStep;
 
-      const isActiveStep = this.props.isComplete ? false : i === this.state.activeStep;
+      const isActiveStep = this.props.isComplete ? false : i == this.state.activeStep;
 
       step.push(
         <View key={i}>
@@ -53,7 +58,7 @@ class ProgressSteps extends Component {
   };
 
   // Callback function from ProgressStep that passes current step.
-  setActiveStep = (step) => {
+  setActiveStep = (step:any) => {
     // Guard against setting current step higher than total step count.
     if (step >= this.state.stepCount - 1) {
       this.setState({ activeStep: this.state.stepCount - 1 });
@@ -71,8 +76,6 @@ class ProgressSteps extends Component {
         justifyContent: 'space-evenly',
         alignSelf: 'center',
         flexDirection: 'row',
-        top: this.props.topOffset,
-        marginBottom: this.props.marginBottom,
       },
     };
 
@@ -87,19 +90,5 @@ class ProgressSteps extends Component {
     );
   }
 }
-
-ProgressSteps.propTypes = {
-  isComplete: PropTypes.bool,
-  activeStep: PropTypes.number,
-  topOffset: PropTypes.number,
-  marginBottom: PropTypes.number,
-};
-
-ProgressSteps.defaultProps = {
-  isComplete: false,
-  activeStep: 0,
-  topOffset: 30,
-  marginBottom: 50,
-};
 
 export default ProgressSteps;

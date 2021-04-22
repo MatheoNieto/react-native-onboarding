@@ -1,4 +1,7 @@
-import ProgressSteps from './ProgressSteps';
-import ProgressStep from './ProgressStep';
+import ProgressSteps from './ProgressSteps'
+import ProgressStep from './ProgressStep'
 
-export { ProgressSteps, ProgressStep };
+export {
+  ProgressSteps,
+  ProgressStep
+}

@@ -1,8 +1,14 @@
 import React from 'react';
 import { View } from 'react-native';
 
-const ButtonPreviosOnboarding = props => (
-    <View>{props.renderPreviousButton()}</View>
+interface PropsButton{
+  renderPreviousButton:any
+}
+
+const ButtonPreviosOnboarding = (props:PropsButton) => (
+  <View>
+    {props.renderPreviousButton()}
+  </View>
 );
 
 export default ButtonPreviosOnboarding;

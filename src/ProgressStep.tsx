@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-import PropTypes from 'prop-types';
 import FooterProgress from './FooterProgress';
 
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-
-
-class ProgressStep extends Component {
-  
+interface Props {
+  scrollViewProps: any
+  viewProps: any
+  scrollable: any
+}
+class ProgressStep extends Component<Props> {
+  constructor(props:Props) {
+    super(props)
+  }
 
   render() {
 
@@ -23,7 +27,9 @@ class ProgressStep extends Component {
             ? <ScrollView {...scrollViewProps}>{this.props.children}</ScrollView>
             : <View {...viewProps}>{this.props.children}</View>}
 
-          <FooterProgress {...this.props} />
+          <FooterProgress 
+            {...this.props} 
+          />
         </View>
       </>
     );
@@ -40,35 +46,5 @@ const styles = StyleSheet.create({
   }
 })
 
-ProgressStep.propTypes = {
-  label: PropTypes.string,
-  onNext: PropTypes.func,
-  onPrevious: PropTypes.func,
-  onSubmit: PropTypes.func,
-  setActiveStep: PropTypes.func,
-  nextBtnText: PropTypes.string,
-  previousBtnText: PropTypes.string,
-  finishBtnText: PropTypes.string,
-  stepCount: PropTypes.number,
-  nextBtnStyle: PropTypes.object,
-  nextBtnTextStyle: PropTypes.object,
-  nextBtnDisabled: PropTypes.bool,
-  previousBtnStyle: PropTypes.object,
-  previousBtnTextStyle: PropTypes.object,
-  previousBtnDisabled: PropTypes.bool,
-  scrollViewProps: PropTypes.object,
-  viewProps: PropTypes.object,
-  errors: PropTypes.bool,
-  removeBtnRow: PropTypes.bool,
-  scrollable: PropTypes.bool
-};
-
-ProgressStep.defaultProps = {
-  nextBtnDisabled: false,
-  previousBtnDisabled: false,
-  errors: false,
-  removeBtnRow: false,
-  scrollable: true
-};
 
 export default ProgressStep;

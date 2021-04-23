@@ -1,7 +1,7 @@
-import ProgressSteps from './ProgressSteps'
-import ProgressStep from './ProgressStep'
+import StepsScreens from './StepsScreens'
+import StepScreen from './StepScreen'
 
 export {
-  ProgressSteps,
-  ProgressStep
+  StepsScreens,
+  StepScreen
 }

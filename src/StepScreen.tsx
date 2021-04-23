@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-import FooterProgress from './FooterProgress';
+import FooterProgress from './FooterStepper';
 
 interface Props {
-  scrollViewProps: any
-  viewProps: any
-  scrollable: any
+  scrollViewProps?: any
+  viewProps?: any
+  scrollable?: any
 }
-class ProgressStep extends Component<Props> {
+class StepScreen extends Component<Props> {
   constructor(props:Props) {
     super(props)
   }
@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default ProgressStep;
+export default StepScreen;

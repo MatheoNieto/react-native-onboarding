@@ -9,7 +9,7 @@ interface Props {
   isComplete?:any
   children?: any
 }
-class ProgressSteps extends Component<Props> {
+class StepsScreens extends Component<Props> {
   state = {
     stepCount: 0,
     activeStep: this.props.activeStep,
@@ -43,9 +43,8 @@ class ProgressSteps extends Component<Props> {
             <StepIcon
               {...this.getChildProps()}
               stepNum={i + 1}
-              label={this.props.children[i].props.label}
-              isFirstStep={i === 0}
-              isLastStep={i === this.state.stepCount - 1}
+              isFirstStep={i == 0}
+              isLastStep={i == this.state.stepCount - 1}
               isCompletedStep={isCompletedStep}
               isActiveStep={isActiveStep}
             />
@@ -91,4 +90,4 @@ class ProgressSteps extends Component<Props> {
   }
 }
 
-export default ProgressSteps;
+export default StepsScreens;

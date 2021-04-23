@@ -75,19 +75,21 @@ class FooterProgress extends Component<Props, State> {
     return step;
   };
 
-  onNextStep = async () => {
-    this.props.onNext && (await this.props.onNext());
-
-    if (this.props.errors) {
-      return;
-    }
-
+  onNextStep = async (event:Event) => {
     this.props.setActiveStep(this.props.activeStep + 1);
+     if(!this.props.onNext){
+       return
+     }
+     this.props.onNext(event)
   };
 
-  onPreviousStep = () => {
-    this.props.onPrevious && this.props.onPrevious();
+  onPreviousStep = (event:Event) => {
     this.props.setActiveStep(this.props.activeStep - 1);
+    if(!this.props.onPrevious){
+      return
+    }
+    this.props.onPrevious(event)
+
   };
 
   onSubmit = (event: Event) => {
@@ -106,7 +108,7 @@ class FooterProgress extends Component<Props, State> {
 
     return (
       <TouchableOpacity
-        onPress={this.props.activeStep === this.props.stepCount - 1 ? this.onSubmit : this.onNextStep}
+        onPress={(this.props.activeStep === this.props.stepCount - 1 )? this.onSubmit : this.onNextStep}
         disabled={this.props.nextBtnDisabled}
       >
         {(this.props.activeStep === this.props.stepCount - 1) ?

@@ -34,5 +34,8 @@
     "lodash": "^4.17.21",
     "react-native-responsive-screen": "^1.4.2",
     "react-native-vector-icons": "^8.1.0"
+  },
+  "peerDependencies": {
+    "react-native": "^0.63.4"
   }
 }

@@ -1,18 +1,21 @@
 {
   "compilerOptions": {
-    "target": "esnext",                       /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
-    "module": "commonjs",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
-    "lib": ["es6", "dom", "dom.iterable"],                           /* Specify library files to be included in the compilation. */
-    "allowJs": true,                          /* Allow javascript files to be compiled. */
-    "jsx": "react",                    /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
-    "outDir": "./dist/",                        /* Redirect output structure to the directory. */
-    "noEmit": false,                           /* Do not emit outputs. */
-    "isolatedModules": false,                  /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
-    "strict": true,                           /* Enable all strict type-checking options. */
-    "noImplicitAny": true,                 /* Raise error on expressions and declarations with an implied 'any' type. */
-    "moduleResolution": "node",               /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
-    "baseUrl": "./",                          /* Base directory to resolve non-absolute module names. */
-    "allowSyntheticDefaultImports": true,     /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
+    "declaration": true,
+    "target": "esnext",                      
+    "module": "commonjs",                     
+    "lib": ["es6", "dom", "dom.iterable"],                      
+    "allowJs": true,                         
+    "jsx": "react",                   
+    "outDir": "./dist/",                       
+    "noEmit": false,                          
+    "isolatedModules": false,                 
+    "strict": true,                          
+    "noImplicitAny": true,                 
+    "moduleResolution": "node",              
+    "baseUrl": "./",                          
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": false
   },
   "exclude": [
     "node_modules"

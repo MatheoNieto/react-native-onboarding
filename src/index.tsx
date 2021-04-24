@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { View, StyleSheet } from 'react-native'
+import React, { Component, ComponentElement } from 'react'
+import { View, StyleSheet, GestureResponderEvent } from 'react-native'
 import { StepScreen, StepsScreens } from './IndexSteper'
 
 interface Props {
   screens: Array<any>
-  onFinish?: any
-  onNext?: any
-  onPrevious?: any
+  onFinish?: ((event:GestureResponderEvent)=>void )| any
+  onNext?: ((event:GestureResponderEvent)=>void )| any
+  onPrevious?: ((event:GestureResponderEvent)=>void )| any
 }
 
 class Onboarding extends Component<Props> {

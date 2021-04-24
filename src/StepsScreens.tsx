@@ -6,7 +6,7 @@ import StepIcon from './StepIcon';
 
 interface Props {
   activeStep?:any
-  isComplete?:any
+  isComplete?:boolean | false
   children?: any
 }
 class StepsScreens extends Component<Props> {

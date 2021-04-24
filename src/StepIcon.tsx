@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 
 interface Props {
-  stepNum: any
-  isFirstStep: boolean
-  isLastStep: boolean
-  isCompletedStep: boolean
-  isActiveStep: boolean
+  stepNum: any | number
+  isFirstStep: boolean | false
+  isLastStep: boolean | false
+  isCompletedStep: boolean | false
+  isActiveStep: boolean | false
 }
 
 class StepIcon extends Component<Props> {

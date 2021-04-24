@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { View, StyleSheet, TouchableOpacity, Dimensions, Platform } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Dimensions, Platform, GestureResponderEvent } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
@@ -11,16 +11,15 @@ import ButtonPreviosOnboarding from './ButtonPreviosOnboarding'
 interface Props {
   stepCount?: any
   activeStep?: any
-  isComplete?: any
-  onNext?: any
+  isComplete?: boolean | false
   setActiveStep?: any
-  onFinish?: any
-  onPrevious?: any
-  errors?: any
-  previousBtnStyle?: any
-  previousBtnDisabled?: any
-  nextBtnDisabled?: boolean
-  previousBtnTextStyle?: any
+  onNext?: ((event: GestureResponderEvent) => void) | any
+  onFinish?: ((event: GestureResponderEvent) => void) | any
+  onPrevious?: ((event: GestureResponderEvent) => void) | any
+  previousBtnStyle?: any | {}
+  previousBtnDisabled?: any | {}
+  nextBtnDisabled?: boolean | false
+  previousBtnTextStyle?: any | {}
 }
 
 interface State {
@@ -75,24 +74,24 @@ class FooterProgress extends Component<Props, State> {
     return step;
   };
 
-  onNextStep = async (event:any) => {
+  onNextStep = async (event: GestureResponderEvent) => {
     this.props.setActiveStep(this.props.activeStep + 1);
-     if(!this.props.onNext){
-       return
-     }
-     this.props.onNext(event)
+    if (!this.props.onNext) {
+      return
+    }
+    this.props.onNext(event)
   };
 
-  onPreviousStep = (event:any) => {
+  onPreviousStep = (event: GestureResponderEvent) => {
     this.props.setActiveStep(this.props.activeStep - 1);
-    if(!this.props.onPrevious){
+    if (!this.props.onPrevious) {
       return
     }
     this.props.onPrevious(event)
 
   };
 
-  onSubmit = (event: any) => {
+  onSubmit = (event: GestureResponderEvent) => {
     this.props.onFinish(event)
   };
 
@@ -108,7 +107,7 @@ class FooterProgress extends Component<Props, State> {
 
     return (
       <TouchableOpacity
-        onPress={(event)=> (this.props.activeStep == this.props.stepCount - 1 )? this.onSubmit(event) : this.onNextStep(event)}
+        onPress={(event) => (this.props.activeStep == this.props.stepCount - 1) ? this.onSubmit(event) : this.onNextStep(event)}
         disabled={this.props.nextBtnDisabled}
       >
         {(this.props.activeStep === this.props.stepCount - 1) ?
@@ -141,7 +140,7 @@ class FooterProgress extends Component<Props, State> {
     if (this.props.previousBtnDisabled) textStyle.push(disabledBtnText);
 
     return (
-      <TouchableOpacity style={btnStyle} onPress={(event)=>this.onPreviousStep(event)} disabled={this.props.previousBtnDisabled}>
+      <TouchableOpacity style={btnStyle} onPress={(event) => this.onPreviousStep(event)} disabled={this.props.previousBtnDisabled}>
         <AntDesign name="leftsquareo" size={40} color="black" />
       </TouchableOpacity>
     );

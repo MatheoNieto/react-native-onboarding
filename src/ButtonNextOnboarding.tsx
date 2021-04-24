@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 
 interface PropsButton {
-  renderNextButton: any
+  renderNextButton: ()=>void | any 
 }
 
 const ButtonNextOnboarding = (props: PropsButton) => (

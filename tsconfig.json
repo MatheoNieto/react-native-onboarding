@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
+    "types": [],
     "declaration": true,
     "target": "esnext",                      
     "module": "commonjs",                     
-    "lib": ["es6", "dom", "dom.iterable"],                      
+    "lib": ["es6"],                      
     "allowJs": true,                         
     "jsx": "react",                   
     "outDir": "./dist/",                       

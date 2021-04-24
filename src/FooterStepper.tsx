@@ -75,7 +75,7 @@ class FooterProgress extends Component<Props, State> {
     return step;
   };
 
-  onNextStep = async (event:Event) => {
+  onNextStep = async (event:any) => {
     this.props.setActiveStep(this.props.activeStep + 1);
      if(!this.props.onNext){
        return
@@ -83,7 +83,7 @@ class FooterProgress extends Component<Props, State> {
      this.props.onNext(event)
   };
 
-  onPreviousStep = (event:Event) => {
+  onPreviousStep = (event:any) => {
     this.props.setActiveStep(this.props.activeStep - 1);
     if(!this.props.onPrevious){
       return
@@ -92,7 +92,7 @@ class FooterProgress extends Component<Props, State> {
 
   };
 
-  onSubmit = (event: Event) => {
+  onSubmit = (event: any) => {
     this.props.onFinish(event)
   };
 
@@ -108,7 +108,7 @@ class FooterProgress extends Component<Props, State> {
 
     return (
       <TouchableOpacity
-        onPress={(this.props.activeStep === this.props.stepCount - 1 )? this.onSubmit : this.onNextStep}
+        onPress={(event)=> (this.props.activeStep == this.props.stepCount - 1 )? this.onSubmit(event) : this.onNextStep(event)}
         disabled={this.props.nextBtnDisabled}
       >
         {(this.props.activeStep === this.props.stepCount - 1) ?
@@ -141,7 +141,7 @@ class FooterProgress extends Component<Props, State> {
     if (this.props.previousBtnDisabled) textStyle.push(disabledBtnText);
 
     return (
-      <TouchableOpacity style={btnStyle} onPress={this.onPreviousStep} disabled={this.props.previousBtnDisabled}>
+      <TouchableOpacity style={btnStyle} onPress={(event)=>this.onPreviousStep(event)} disabled={this.props.previousBtnDisabled}>
         <AntDesign name="leftsquareo" size={40} color="black" />
       </TouchableOpacity>
     );

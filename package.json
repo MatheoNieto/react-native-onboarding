@@ -1,6 +1,6 @@
 {
   "name": "stepper-react-native",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "On boarding component",
@@ -20,6 +20,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "prepare": "npm run build",
     "build": "tsc"
   },
   "devDependencies": {

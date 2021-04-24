@@ -1,6 +1,4 @@
-# Logs
-*.log
-npm-debug.log
-
-# Dependency directory
+src
+tsconfig.json
+tslint.json
 node_modules

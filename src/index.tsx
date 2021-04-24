@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
-
 import { View, StyleSheet } from 'react-native'
-
 import { StepScreen, StepsScreens } from './IndexSteper'
 
 interface Props {
   screens: Array<any>
-  onFinish?: (event:Event) => void
-  onNext?: (event:Event)=> void
-  onPrevious?: (event:Event)=> void
+  onFinish?: any
+  onNext?: any
+  onPrevious?: any
 }
 
 class Onboarding extends Component<Props> {
@@ -40,8 +38,8 @@ class Onboarding extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
   },
+  
   contentStep: {
     backgroundColor: 'red'
   }

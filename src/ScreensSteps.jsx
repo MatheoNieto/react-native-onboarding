@@ -36,6 +36,11 @@ class ScreensSteps extends Component {
   };
 
   render() {
+
+    if(this.state.stepCount == 0){
+      return (<></>)
+    }
+    
     return (
       <View style={{ flex: 1 }}>
         {cloneElement(this.props.children[this.state.activeStep], {

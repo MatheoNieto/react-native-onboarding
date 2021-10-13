@@ -1,3 +1,3 @@
-import Onboarding from './src/Onboarding'
+import Onboarding from './src/sections/Onboarding'
 
 export default Onboarding

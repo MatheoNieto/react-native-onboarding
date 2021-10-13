@@ -19,9 +19,15 @@
     "ios",
     "android"
   ],
-  "author": "Mateo Nieto <matheo.developer@gmail.com>",
+  "author": {
+    "name": "Mateo Nieto",
+    "email": "matheo.developer@gmail.com"
+  },
   "license": "MIT",
   "private": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/MatheoNieto"
+  },
   "dependencies": {
     "react-native-vector-icons": "^8.1.0"
   },

@@ -1,8 +1,17 @@
 import React, { Component, cloneElement } from "react";
 import { View } from "react-native";
-import PropTypes from "prop-types";
 
-class ScreensSteps extends Component {
+interface Props {
+	isComplete: false;
+	activeStep: 0;
+}
+
+interface State {
+	stepCount: number;
+	activeStep: number;
+}
+
+class ScreensSteps extends Component<Props, State> {
 	constructor(props) {
 		super(props);
 
@@ -18,14 +27,14 @@ class ScreensSteps extends Component {
 		});
 	}
 
-	componentDidUpdate(prevProps) {
+	componentDidUpdate(prevProps: Props) {
 		if (prevProps.activeStep !== this.props.activeStep) {
 			this.setActiveStep(this.props.activeStep);
 		}
 	}
 
 	// Callback function from ProgressStep that passes current step.
-	setActiveStep = (step) => {
+	setActiveStep = (step: number) => {
 		if (step >= this.state.stepCount - 1) {
 			this.setState({ activeStep: this.state.stepCount - 1 });
 			return;
@@ -52,19 +61,5 @@ class ScreensSteps extends Component {
 		);
 	}
 }
-
-ScreensSteps.propTypes = {
-	isComplete: PropTypes.bool,
-	activeStep: PropTypes.number,
-	topOffset: PropTypes.number,
-	marginBottom: PropTypes.number,
-};
-
-ScreensSteps.defaultProps = {
-	isComplete: false,
-	activeStep: 0,
-	topOffset: 30,
-	marginBottom: 50,
-};
 
 export default ScreensSteps;

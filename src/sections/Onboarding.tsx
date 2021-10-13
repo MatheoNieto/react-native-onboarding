@@ -1,9 +1,23 @@
-import React, { Component } from "react";
-import { View, SafeAreaView, Dimensions, StyleSheet } from "react-native";
+import React, { Component, ReactElement } from "react";
+import {
+	View,
+	SafeAreaView,
+	Dimensions,
+	StyleSheet,
+	ViewStyle,
+} from "react-native";
 import ScreensSteps from "./ScreensSteps";
 import ScreenStep from "./ScreenStep";
 
-class Onboarding extends Component {
+interface Props {
+	colorIcons: string;
+	screens: Array<ReactElement>;
+	containerStyle: ViewStyle;
+	onFinish: () => void;
+	onNext: () => void;
+	onPrevious: () => void;
+}
+class Onboarding extends Component<Props> {
 	constructor(props) {
 		super(props);
 	}
@@ -11,15 +25,8 @@ class Onboarding extends Component {
 	render() {
 		const { screens } = this.props;
 
-		const styleScreen = {
-			flex: 1,
-			flexDirection: "column",
-			justifyContent: "space-between",
-			height: Dimensions.get("window").height,
-		};
-
 		return (
-			<SafeAreaView style={styleScreen}>
+			<SafeAreaView style={styles.styleScreen}>
 				<View style={styles.container}>
 					<ScreensSteps>
 						{screens.map((screen, index) => (
@@ -41,6 +48,12 @@ const styles = StyleSheet.create({
 	},
 	contentStep: {
 		padding: 5,
+	},
+	styleScreen: {
+		flex: 1,
+		flexDirection: "column",
+		justifyContent: "space-between",
+		height: Dimensions.get("window").height,
 	},
 });
 

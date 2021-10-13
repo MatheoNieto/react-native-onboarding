@@ -1,12 +1,30 @@
 import React from "react";
-import { View, ScrollView, StyleSheet, Dimensions } from "react-native";
-import PropTypes from "prop-types";
+import {
+	View,
+	ScrollView,
+	StyleSheet,
+	Dimensions,
+	ViewStyle,
+} from "react-native";
 import FooterProgress from "./FooterProgress";
 
-const ScreenStep = (props) => {
+interface Props {
+	isComplete: boolean;
+	activeStep: 0;
+	stepCount: 0;
+	containerStyle: ViewStyle;
+	colorIcons: "#2E2E2E";
+	children: unknown;
+	setActiveStep: (step?: number) => void;
+	onFinish: () => void;
+	onNext: () => void;
+	onPrevious: () => void;
+}
+
+const ScreenStep = (props: Props) => {
 	return (
 		<View style={styles.container}>
-			<ScrollView style={styles.scrollview}>{props.children}</ScrollView>
+			<ScrollView>{props.children}</ScrollView>
 			<FooterProgress {...props} />
 		</View>
 	);
@@ -25,22 +43,5 @@ const styles = StyleSheet.create({
 		left: 0,
 	},
 });
-
-ScreenStep.propTypes = {
-	setActiveStep: PropTypes.func,
-	stepCount: PropTypes.number,
-	activeStep: PropTypes.number,
-	isComplete: PropTypes.bool,
-	containerStyle: PropTypes.any,
-	colorIcons: PropTypes.string,
-};
-
-ScreenStep.defaultProps = {
-	isComplete: false,
-	activeStep: 0,
-	stepCount: 0,
-	containerStyle: {},
-	colorIcons: "#2E2E2E",
-};
 
 export default ScreenStep;

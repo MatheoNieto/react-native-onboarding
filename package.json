@@ -18,10 +18,16 @@
   "author": "Mateo Nieto <matheo.developer@gmail.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "release": "semantic-release"
+  },
   "dependencies": {
     "react-native-vector-icons": "^8.1.0"
   },
   "peerDependencies": {
     "react-native": ">=0.35"
+  },
+  "devDependencies": {
+    "semantic-release": "^18.0.0"
   }
 }

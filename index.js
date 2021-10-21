@@ -1,3 +1,5 @@
-import Onboarding from './src/sections/Onboarding'
+import Onboarding from "./src/sections/Onboarding";
 
-export default Onboarding
+exports.default = {
+	Onboarding
+};

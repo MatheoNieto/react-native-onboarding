@@ -18,7 +18,7 @@ npm i stepper-react-native
 
 ## Usage
 ```
-import Onboarding from 'stepper-react-native'
+import {Onboarding} from 'stepper-react-native'
 
 //components
 import Step1 from './step1';

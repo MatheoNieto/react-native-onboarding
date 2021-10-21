@@ -1,6 +1,6 @@
 {
   "name": "stepper-react-native",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "main": "index.js",
   "description": "On boarding component",
   "repository": {
@@ -13,7 +13,11 @@
   },
   "keywords": [
     "react-native",
-    "onboarding"
+    "react-component",
+    "react-native-onboarding",
+    "onboarding",
+    "ios",
+    "android"
   ],
   "author": "Mateo Nieto <matheo.developer@gmail.com>",
   "license": "MIT",

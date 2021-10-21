@@ -32,6 +32,7 @@
     "react-native": ">=0.35"
   },
   "devDependencies": {
-    "semantic-release": "^18.0.0"
+    "semantic-release": "^18.0.0",
+    "metro-react-native-babel-preset": "^0.51.1"
   }
 }

@@ -68,7 +68,7 @@ const steps = [<Step1 scrolleable={true} />, <Step2 />, <Step3 />];
 
 | Props      | Type | default
 | ----------- | ----------- | ----------- |
-| scrolleable   | bolean    | false | 
+| scrolleable   | boolean    | false | 
 ## Author
 Mateo Nieto | [https://mateonietohoyos.com/](https://mateonietohoyos.com)
 

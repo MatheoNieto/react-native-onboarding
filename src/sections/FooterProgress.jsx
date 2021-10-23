@@ -53,6 +53,7 @@ class FooterProgress extends Component {
 					isCompletedStep={isCompletedStep}
 					isActiveStep={isActiveStep}
 					colorIcon={this.props.colorIcons}
+					sizeIcons={this.props.sizeIcons}
 					{...this.getChildProps()}
 				/>
 			);

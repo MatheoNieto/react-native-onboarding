@@ -26,7 +26,7 @@ import Step2 from './step2';
 import Step3 from './step3';
 
 //Component render inside onboarding
-const steps = [<Step1 />, <Step2 />, <Step3 />];
+const steps = [<Step1 scrolleable={true} />, <Step2 />, <Step3 />];
 
   export default function App() {
   const handleOnNext = () => {
@@ -54,7 +54,7 @@ const steps = [<Step1 />, <Step2 />, <Step3 />];
 
 ## Documentation
 
-### Step Component
+### Props Oboarding
 | Props      | Type | default
 | ----------- | ----------- | ----------- |
 | screens      | Array < components >       | [ ] |
@@ -63,6 +63,12 @@ const steps = [<Step1 />, <Step2 />, <Step3 />];
 | onFinish   | function        | undefined | 
 | colorIcons   | string        | #2E2E2E | 
 | containerStyle   | objectStyle        | {} | 
+| sizeIcons   | number        | 25 | 
+### Props children
+
+| Props      | Type | default
+| ----------- | ----------- | ----------- |
+| scrolleable   | bolean    | false | 
 ## Author
 Mateo Nieto | [https://mateonietohoyos.com/](https://mateonietohoyos.com)
 

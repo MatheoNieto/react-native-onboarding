@@ -12,8 +12,8 @@ const StepIcon = (props)=> {
 
   if (props.isActiveStep) {
     styles['circleStyle'] = {
-      width: 25,
-      height: 25,
+      width: props.sizeIcons,
+      height: props.sizeIcons,
       borderRadius: 20,
       backgroundColor: props.colorIcon,
       borderColor: props.colorIcon,
@@ -24,8 +24,8 @@ const StepIcon = (props)=> {
 
   } else if (props.isCompletedStep) {
     styles['circleStyle'] = {
-      width: 25,
-      height: 25,
+      width: props.sizeIcons,
+      height: props.sizeIcons,
       borderRadius: 18,
       backgroundColor: props.colorIcon,
       opacity: 1,
@@ -38,8 +38,8 @@ const StepIcon = (props)=> {
 
   } else {
     styles['circleStyle'] = {
-      width: 25,
-      height: 25,
+      width: props.sizeIcons,
+      height: props.sizeIcons,
       borderRadius: 18,
       backgroundColor: 'transparent',
       marginHorizontal: 5,

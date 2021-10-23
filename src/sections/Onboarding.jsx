@@ -24,7 +24,7 @@ class Onboarding extends Component {
 					<ScreensSteps>
 						{screens.map((screen, index) => (
 							<ScreenStep key={index} {...this.props}>
-								<View style={styles.contentStep}>{screen}</View>
+								{screen}
 							</ScreenStep>
 						))}
 					</ScreensSteps>
@@ -38,9 +38,6 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		paddingTop: Dimensions.get("window").height > 700 ? 50 : 0,
-	},
-	contentStep: {
-		padding: 5,
 	},
 });
 

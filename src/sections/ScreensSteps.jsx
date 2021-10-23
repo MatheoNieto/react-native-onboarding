@@ -47,6 +47,7 @@ class ScreensSteps extends Component {
 					setActiveStep: this.setActiveStep,
 					activeStep: this.state.activeStep,
 					stepCount: this.state.stepCount,
+					scrolleable: this.props.scrolleable,
 				})}
 			</View>
 		);

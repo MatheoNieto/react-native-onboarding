@@ -1,5 +1,5 @@
-import React, { useState, FC, useEffect } from "react";
-import { View, StyleSheet, ViewStyle } from "react-native";
+import React, { FC, useEffect } from "react";
+import { View, StyleSheet } from "react-native";
 
 import StepIcon from "../../elements/StepIcon";
 import ButtonStep from "../../elements/ButtonStep";

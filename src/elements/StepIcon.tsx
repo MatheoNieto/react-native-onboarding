@@ -1,13 +1,13 @@
-import React from "react";
+import React, {FC} from "react";
 import { View, StyleSheet } from "react-native";
 
-interface Props {
+type PropsStepIcon = {
 	isActiveStep: boolean;
 	isCompletedStep: boolean;
 	colorIcon: string;
 }
 
-const StepIcon = (props: Props) => {
+const StepIcon:FC<PropsStepIcon> = ({isActiveStep, colorIcon, isCompletedStep}) => {
 	let styles = StyleSheet.create({
 		container: {
 			backgroundColor: "transparent",
@@ -17,23 +17,23 @@ const StepIcon = (props: Props) => {
 		circleStyle: {},
 	});
 
-	if (props.isActiveStep) {
+	if (isActiveStep) {
 		styles["circleStyle"] = {
 			width: 25,
 			height: 25,
 			borderRadius: 20,
-			backgroundColor: props.colorIcon,
-			borderColor: props.colorIcon,
+			backgroundColor: colorIcon,
+			borderColor: colorIcon,
 			borderWidth: 2,
 			bottom: 2,
 			marginHorizontal: 10,
 		};
-	} else if (props.isCompletedStep) {
+	} else if (isCompletedStep) {
 		styles["circleStyle"] = {
 			width: 25,
 			height: 25,
 			borderRadius: 18,
-			backgroundColor: props.colorIcon,
+			backgroundColor: colorIcon,
 			opacity: 1,
 			marginHorizontal: 5,
 		};
@@ -48,7 +48,7 @@ const StepIcon = (props: Props) => {
 			borderRadius: 18,
 			backgroundColor: "transparent",
 			marginHorizontal: 5,
-			borderColor: props.colorIcon,
+			borderColor: colorIcon,
 			borderWidth: 2,
 		};
 	}

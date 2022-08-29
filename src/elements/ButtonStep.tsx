@@ -1,18 +1,18 @@
-import React from "react";
-import { TouchableOpacity } from "react-native";
+import React, {FC} from "react";
+import { Pressable } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 
-interface Props {
+type PropsButtonStep ={
 	onPress: () => void;
 	colorIcon: string;
-	type: "next" | "previous";
+	typeButton: "next" | "previous";
 	disabled?: boolean;
 	finish?: boolean;
 }
 
-const ButtonStep = (props: Props) => {
+const ButtonStep: FC<PropsButtonStep> = ({typeButton, finish, colorIcon, disabled, onPress}) => {
 	const renderButton = () => {
-		if (props.type === "previous") {
+		if (typeButton === "previous") {
 			return buttonBack();
 		}
 
@@ -20,20 +20,20 @@ const ButtonStep = (props: Props) => {
 	};
 
 	const buttonNext = () => {
-		if (props.finish) {
-			return <Icon name='checkcircleo' size={40} color={props.colorIcon} />;
+		if (finish) {
+			return <Icon name='checkcircleo' size={40} color={colorIcon} />;
 		}
-		return <Icon name='rightsquareo' size={40} color={props.colorIcon} />;
+		return <Icon name='rightsquareo' size={40} color={colorIcon} />;
 	};
 
 	const buttonBack = () => {
-		return <Icon name='leftsquareo' size={40} color={props.colorIcon} />;
+		return <Icon name='leftsquareo' size={40} color={colorIcon} />;
 	};
 
 	return (
-		<TouchableOpacity onPress={() => props.onPress()} disabled={props.disabled}>
+		<Pressable onPress={() => onPress()} disabled={disabled}>
 			{renderButton()}
-		</TouchableOpacity>
+		</Pressable>
 	);
 };
 export default ButtonStep;

@@ -1,8 +1,8 @@
 {
   "name": "stepper-react-native",
-  "version": "1.2.1",
+  "version": "1.2.0",
   "main": "index.js",
-  "description": "On boarding component",
+  "description": "Onboarding component",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MatheoNieto/react-native-onboarding.git"
@@ -19,20 +19,25 @@
     "ios",
     "android"
   ],
-  "author": "Mateo Nieto <matheo.developer@gmail.com>",
+  "author": {
+    "name": "Mateo Nieto",
+    "email": "matheo.developer@gmail.com"
+  },
   "license": "MIT",
   "private": false,
-  "scripts": {
-    "release": "semantic-release"
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/MatheoNieto"
   },
   "dependencies": {
     "react-native-vector-icons": "^8.1.0"
   },
   "peerDependencies": {
-    "react-native": ">=0.35"
+    "react": ">=0.14.5",
+    "react-native": ">=0.25.1"
   },
   "devDependencies": {
-    "semantic-release": "^18.0.0",
-    "metro-react-native-babel-preset": "^0.51.1"
+    "@types/react": "^17.0.29",
+    "@types/react-native": "^0.65.5",
+    "typescript": "^4.4.4"
   }
 }

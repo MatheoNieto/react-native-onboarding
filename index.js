@@ -1,2 +1,1 @@
-import Onboarding from "./src/sections/Onboarding";
-export { Onboarding };
+export * from "./src/sections/Onboarding";

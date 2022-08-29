@@ -1,0 +1,21 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "sourceMap": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,  
+    "importHelpers": true,
+    "target": "esnext",
+    "module": "commonjs",
+    "jsx": "react-native",
+    "allowJs": true, 
+    "lib": ["es6", "dom"]
+  },
+  "include": ["src/*"],
+  "exclude": ["node_modules"]
+}

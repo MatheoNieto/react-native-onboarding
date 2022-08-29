@@ -8,15 +8,32 @@ import {
 import {FooterProgress} from "../FooterProgress";
 import {PropsScreenStep} from "./ScreenStep.types";
 
-
-
 const ScreenStep:FC<PropsScreenStep> = ({
-	children
-										}) => {
+	isComplete,
+	activeStep,
+	stepCount,
+	containerStyle,
+	colorIcons,
+	children,
+	setActiveStep,
+	onFinish,
+	onNext,
+	onPrevious
+}) => {
 	return (
 		<View style={styles.container}>
 			<ScrollView>{children}</ScrollView>
-			<FooterProgress {...props} />
+			<FooterProgress
+				setStepActive={setActiveStep}
+				stepCount={stepCount}
+				onPrevious={onPrevious}
+				onFinish={onFinish}
+				isComplete={isComplete}
+				containerStyle={containerStyle}
+				colorIcons={colorIcons}
+				onNext={onNext}
+				stepActive={activeStep}
+			/>
 		</View>
 	);
 };

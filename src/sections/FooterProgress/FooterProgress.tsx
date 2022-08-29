@@ -64,14 +64,14 @@ const FooterProgress:FC<PropsFooterProgress> = ({stepActive, setStepActive, step
 				finish={stepActive === stepCount - 1}
 				onPress={() => onNextStep()}
 				colorIcon={colorIcons}
-				type='next'
+				typeButton='next'
 			/>
 			<View style={styles.stepIcons}>{renderStepIcons()}</View>
 			<ButtonStep
 				onPress={() => onPreviousStep()}
 				disabled={stepActive === 0}
 				colorIcon={colorIcons}
-				type='previous'
+				typeButton='previous'
 			/>
 		</View>
 	);

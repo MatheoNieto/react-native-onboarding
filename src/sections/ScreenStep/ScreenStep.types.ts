@@ -6,7 +6,7 @@ export type PropsScreenStep = {
     activeStep: number;
     stepCount: number;
     containerStyle: ViewStyle;
-    colorIcons: "#2E2E2E";
+    colorIcons: string;
     children: ReactElement;
     setActiveStep: (step?: number) => void;
     onFinish: () => void;

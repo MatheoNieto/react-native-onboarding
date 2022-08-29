@@ -1,1 +1,1 @@
-export * from "./src/sections/Onboarding";
+export * from "./src/index";

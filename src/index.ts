@@ -1,1 +1,1 @@
-export * from './sections/Onboarding'
+export * from './sections/ScreensSteps'

@@ -2,7 +2,7 @@
   "name": "stepper-react-native",
   "version": "1.2.0",
   "main": "index.js",
-  "description": "On boarding component",
+  "description": "Onboarding component",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MatheoNieto/react-native-onboarding.git"

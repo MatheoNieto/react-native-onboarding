@@ -2,12 +2,12 @@ import React, {Component, cloneElement, FC, useState, useEffect, ReactElement} f
 import { View } from "react-native";
 
 type PropsScreensSteps ={
-	stepActive: number | 0;
+	stepActive: number;
 	children: Array<ReactElement>;
 	isComplete?: boolean | false;
 }
 
-const ScreensSteps: FC<PropsScreensSteps> = ({stepActive, children}) => {
+const ScreensSteps: FC<PropsScreensSteps> = ({stepActive = 0, children}) => {
 	const [stepCount, setStepCount] = useState<number>(0)
 	const [activeStep, setActiveStep] = useState<number>(stepActive)
 

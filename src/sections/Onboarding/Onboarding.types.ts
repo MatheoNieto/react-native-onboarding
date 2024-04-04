@@ -1,9 +1,10 @@
-import {ReactElement} from "react";
+import React from "react";
 import {ViewStyle} from "react-native";
+import {PropsScreenStep} from "../ScreenStep/ScreenStep.types";
 
 export type PropsOnboarding = {
     colorIcons: string;
-    screens: Array<ReactElement>;
+    screens: Array<React.FC<PropsScreenStep>>;
     containerStyle: ViewStyle;
     onFinish: () => void;
     onNext: () => void;

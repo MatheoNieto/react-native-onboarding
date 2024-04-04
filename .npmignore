@@ -2,3 +2,6 @@ node_modules
 .idea
 .github
 release.config.js
+src
+package-lock.json
+tsconfig

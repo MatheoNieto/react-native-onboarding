@@ -6,18 +6,19 @@ A simple and fully customizable React Native component that implements a onboard
 
 ## Installation
 
-yarn
+### yarn
 
-```
+```shell
 yarn add stepper-react-native
 ```
-npm
-```
+
+### npm
+```shell
 npm i stepper-react-native
 ```
 
 ## Usage
-```
+```javascript
 import {Onboarding} from 'stepper-react-native'
 
 //components
@@ -69,8 +70,4 @@ const steps = [<Step1 scrolleable={true} />, <Step2 />, <Step3 />];
 | Props      | Type | default
 | ----------- | ----------- | ----------- |
 | scrolleable   | boolean    | false | 
-## Author
-Mateo Nieto | [https://mateonietohoyos.com/](https://mateonietohoyos.com)
 
-## License
-[MIT](./LICENSE)

@@ -11,12 +11,12 @@ import {PropsScreenStep} from "./ScreenStep.types";
 
 
 const ScreenStep:FC<PropsScreenStep> = ({
-	children
+	children, ...rest
 										}) => {
 	return (
 		<View style={styles.container}>
 			<ScrollView>{children}</ScrollView>
-			<FooterProgress {...props} />
+			<FooterProgress {...rest} />
 		</View>
 	);
 };

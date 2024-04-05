@@ -1,5 +1,5 @@
 import React from 'react';
-import Onboarding from "./sections/Onboarding/Onboarding";
+import Onboarding from "./sections/Onboarding";
 import {MainPropsType} from "./types";
 import {OnboardingProvider} from "./store/provider";
 

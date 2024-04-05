@@ -36,7 +36,6 @@
   "publishConfig": {
     "@MatheoNieto:registry": "https://npm.pkg.github.com"
   },
-  "dependencies": {},
   "peerDependencies": {
     "react": ">=0.14.5",
     "react-native": ">=0.25.1",
@@ -46,6 +45,7 @@
     "@types/react": "^17.0.29",
     "@types/react-native": "^0.65.5",
     "@types/react-native-vector-icons": "^6.4.18",
+    "prettier": "^3.2.5",
     "tsup": "^8.0.2",
     "typescript": "^4.4.4"
   }

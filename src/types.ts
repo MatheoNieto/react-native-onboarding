@@ -3,19 +3,20 @@ import React from "react";
 
 export type ScreensType = {
 	scrollable?: boolean;
-	screen: JSX.Element | JSX.Element[] | React.ReactNode | React.ReactNode[]
+	screen: React.ReactElement
 }
 
 export type ActionsBoardingType = {
 	onFinish?: () => void;
 	onNext?: () => void;
 	onPrevious?: () => void;
+	footerStyle?: ViewStyle;
 }
 
 export type ConfigTypes = {
-		colorIcons?: string;
-		containerStyle?: ViewStyle;
-		sizeIcons?: number
+	colorIcons?: string;
+	containerStyle?: ViewStyle;
+	sizeIcons?: number
 }
 
 export type MainPropsType = ActionsBoardingType & {

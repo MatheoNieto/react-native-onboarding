@@ -1,11 +1,11 @@
 import React, { FC, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
 
-import StepIcon from "../../elements/StepIcon";
-import ButtonStep from "../../elements/ButtonStep";
-import {PropsFooterProgress} from "./FooterProgress.types";
+import StepIcon from "../elements/StepIcon";
+import ButtonStep from "../elements/ButtonStep";
+import {ActionsBoardingType} from "../types";
 
-const FooterProgress:FC<PropsFooterProgress> = ({stepActive, setStepActive, stepCount, isComplete, colorIcons,onFinish, onNext, onPrevious, containerStyle}) => {
+const FooterProgress:React.FC<ActionsBoardingType> = ({onFinish, onNext, onPrevious, footerStyle}) => {
 	useEffect(()=> {
 		setStepActive(stepActive)
 	},[stepActive])

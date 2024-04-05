@@ -5,3 +5,4 @@ release.config.js
 src
 package-lock.json
 tsconfig
+tsup.config.ts

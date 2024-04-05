@@ -1,6 +1,6 @@
 {
   "name": "stepper-react-native",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -22,7 +22,10 @@
     "react-native-onboarding",
     "onboarding",
     "ios",
-    "android"
+    "android",
+    "onboarding",
+    "context",
+    "customatizable"
   ],
   "scripts": {
     "build": "tsup"

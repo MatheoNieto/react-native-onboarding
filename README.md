@@ -1,8 +1,9 @@
 # react-native-onboarding
 
-A simple and fully customizable React Native component that implements a onboardin stepper.
+A simple and fully customizable React Native component that implements a onboarding stepper.
 
-[Try this example on Snack](https://snack.expo.dev/@matheonieto/stepper-react-native).
+### demo:
+![Animation](docs/image.gif)
 
 ## Installation
 
@@ -22,14 +23,25 @@ npm i stepper-react-native
 import {Onboarding} from 'stepper-react-native'
 
 //components
-import Step1 from './step1';
-import Step2 from './step2';
-import Step3 from './step3';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet,  View } from 'react-native';
+import Step1 from './src/components/step1';
+import {Onboarding, ScreensType} from 'stepper-react-native'
 
-//Component render inside onboarding
-const steps = [<Step1 scrolleable={true} />, <Step2 />, <Step3 />];
+export default function App() {
+  const steps: ScreensType[] = [{
+    scrollable: true,
+    screen: <Step1 description='This is the first' />
+  },
+    {
+      scrollable: false,
+      screen: <Step1 description='This is the second' />
+    },
+    {
+      scrollable: false,
+      screen: <Step1 description='This is the third' />
+    }];
 
-  export default function App() {
   const handleOnNext = () => {
     console.log("ON next");
   };
@@ -42,32 +54,58 @@ const steps = [<Step1 scrolleable={true} />, <Step2 />, <Step3 />];
 
   return (
     <View style={styles.container}>
-      <Onboarding
-        screens={steps}
-        onNext={() => handleOnNext()}
-        onPrevious={() => handleOnBack()}
-        onFinish={() => handleFinish()}
-      />
+      <View style={styles.container}>
+        <Onboarding
+          screens={steps}
+          onNext={() => handleOnNext()}
+          onPrevious={() => handleOnBack()}
+          onFinish={() => handleFinish()}
+        />
+      </View>
+      <StatusBar style="auto" />
     </View>
   );
-  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
 ```
 
-## Documentation
+### Props 
 
-### Props Oboarding
-| Props      | Type | default
-| ----------- | ----------- | ----------- |
-| screens      | Array < components >       | [ ] |
-| onNext   | function        | undefined | 
-| onPrevious   | function        | undefined | 
-| onFinish   | function        | undefined | 
-| colorIcons   | string        | #2E2E2E | 
-| containerStyle   | objectStyle        | {} | 
-| sizeIcons   | number        | 25 | 
-### Props children
+```typescript
+import {ViewStyle} from "react-native";
+import React from "react";
 
-| Props      | Type | default
-| ----------- | ----------- | ----------- |
-| scrolleable   | boolean    | false | 
+type ScreensType = {
+	scrollable?: boolean;
+	screen: React.ReactElement
+}
+
+type ActionsBoardingType = {
+	onFinish?: () => void;
+	onNext?: () => void;
+	onPrevious?: () => void;
+	footerStyle?: ViewStyle;
+}
+
+type ConfigTypes = {
+	colorIcons?: string;
+	containerStyle?: ViewStyle;
+	sizeIcons?: number
+}
+
+type MainPropsType = ActionsBoardingType & {
+	screens: ScreensType[];
+	config?: ConfigTypes
+}
+
+```
 

@@ -8,14 +8,14 @@ const ContentComponent: React.FC<ActionsBoardingType> = (props) => {
   const { screens, stepActive } = useBoarding();
 
   const getComponent = React.useMemo(() => {
-    const CustomComponent: ScreensType['screen'] = screens[stepActive].screen;
+    const CustomComponent: ScreensType['screen'] = screens[stepActive]?.screen;
     if (!CustomComponent) return null;
     return React.cloneElement(CustomComponent);
   }, [stepActive]);
 
   return (
     <View style={styles.container}>
-      <ScrollView scrollEnabled={screens[stepActive].scrollable}>{getComponent}</ScrollView>
+      <ScrollView scrollEnabled={screens[stepActive]?.scrollable}>{getComponent}</ScrollView>
       <FooterProgress {...props} />
     </View>
   );

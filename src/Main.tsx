@@ -1,7 +1,7 @@
 import React from 'react';
-import {OnboardingProvider} from "./store/context";
 import Onboarding from "./sections/Onboarding/Onboarding";
 import {MainPropsType} from "./types";
+import {OnboardingProvider} from "./store/provider";
 
 
 const Main: React.FC<MainPropsType> = ({...props})=> {

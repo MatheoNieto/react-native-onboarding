@@ -1,18 +1,12 @@
-import {ConfigTypes} from "../types";
+import {DataReadContextType} from "./context";
 
 export type ActionsType =
 	| {
-	type: 'loadConfig'; payload: ConfigTypes;
+	type: 'loadData'; payload: DataReadContextType;
 }
 	| {
 	type: 'changeStep'; payload: {
 		stepActive: number;
 		isComplete?: boolean;
-	}
-}
-	|{
-	type: 'loadSteps'; payload: {
-		stepActive: number;
-		stepCount: number;
 	}
 }

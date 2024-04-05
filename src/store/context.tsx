@@ -1,10 +1,12 @@
 import React from 'react';
 import {ViewStyle} from "react-native";
+import {ScreensType} from "../types";
 
-export type OnboardingContextState ={
+export type DataReadContextType = {
 	stepActive: number;
 	stepCount: number;
 	isComplete: boolean;
+	screens: ScreensType[];
 	config?: {
 		colorIcons?: string;
 		containerStyle?: ViewStyle;
@@ -12,39 +14,13 @@ export type OnboardingContextState ={
 	}
 }
 
-const colorDefaultIcons =  '#2E2E2E'
-const sizeDefaultIcons =  25
-
-const OnboardingContext = React.createContext<OnboardingContextState>({
-	stepActive: 0,
-	stepCount: 0,
-	isComplete: false,
-	config:{
-		colorIcons: colorDefaultIcons,
-		sizeIcons: sizeDefaultIcons,
-	}
-});
-
-type OnboardingProviderProps = {
-	children: JSX.Element | JSX.Element[]
+export type OnboardingContextState =DataReadContextType & {
+	onChangeStep: (newStep: number) => void;
+	onLoadData: (data: DataReadContextType) => void;
 }
 
-export const OnboardingProvider: React.FC<OnboardingProviderProps> = ({children})=> {
-	const INITIAL_STATE = {
-		stepActive: 0,
-		stepCount: 0,
-		isComplete: false,
-		config:{
-			colorIcons: colorDefaultIcons,
-			sizeIcons: sizeDefaultIcons,
-		}
-	}
+export const OnboardingContext = React.createContext<OnboardingContextState>({} as OnboardingContextState);
 
-	return (
-		<OnboardingContext.Provider value={INITIAL_STATE}>
-			{children}
-		</OnboardingContext.Provider>
-	)
-}
 
-export const useOnboardingContext = React.useContext(OnboardingContext);
+
+
